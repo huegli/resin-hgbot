@@ -32,9 +32,25 @@ RUN mkdir /var/run/sshd \
     && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
     && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
 
-RUN mkdir /ros/my_ws
+# set up dev environment
+WORKDIR /root
+RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim
+RUN git clone https://github.com/morhetz/gruvbox.git /root/.vim/bundle/gruvbox
+RUN git clone https://github.com/huegli/dotfiles
+RUN ln -s dotfiles/vimrc .vimrc
+RUN ln -s dotfiles/dir_colors .dir_colors
+RUN ln -s dotfiles/tmux.conf .tmux.conf
+RUN echo "export TERM=xterm-256color" >> ~/.bashrc
+
+# Set up HGBot workspace
+RUN -p mkdir /ros/hgbot_ws/src
+RUN git clone https://github.com/huegli/hgbot_infra.git
+WORKDIR /ros/hgbot_ws
+RUN catkin_make
+RUN echo "source /opt/ros/kinetic/setup.bash" >> /root/.bashrc
+RUN echo "source /ros/hgbot_ws/devel/setup.bash" >> /root/.bashrc
+
 COPY start.sh /ros/start.sh
-WORKDIR /ros/my_ws
 
 CMD [ "/bin/bash", "/ros/start.sh" ]
 
