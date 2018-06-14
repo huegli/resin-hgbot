@@ -43,7 +43,8 @@ RUN ln -s dotfiles/tmux.conf .tmux.conf
 RUN echo "export TERM=xterm-256color" >> ~/.bashrc
 
 # Set up HGBot workspace
-RUN -p mkdir /ros/hgbot_ws/src
+RUN mkdir -p /ros/hgbot_ws/src
+WORKDIR /ros/hgbot_ws/src
 RUN git clone https://github.com/huegli/hgbot_infra.git
 WORKDIR /ros/hgbot_ws
 RUN catkin_make
