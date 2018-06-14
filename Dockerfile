@@ -47,6 +47,7 @@ RUN mkdir -p /ros/hgbot_ws/src
 WORKDIR /ros/hgbot_ws/src
 RUN git clone https://github.com/huegli/hgbot_infra.git
 WORKDIR /ros/hgbot_ws
+RUN source /opt/ros/kinetic/setup.bash
 RUN catkin_make
 RUN echo "source /opt/ros/kinetic/setup.bash" >> /root/.bashrc
 RUN echo "source /ros/hgbot_ws/devel/setup.bash" >> /root/.bashrc
