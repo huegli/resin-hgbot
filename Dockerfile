@@ -49,7 +49,6 @@ RUN git config --global user.email "nikolai.schlegel@gmail.com"
 RUN git config --global user.name  "Nikolai Schlegel"
 RUN git config --global push.default simple
 WORKDIR /ros/hgbot_ws
-RUN /opt/ros/kinetic/bin/catkin_make
 RUN echo "source /opt/ros/kinetic/setup.bash" >> /root/.bashrc
 RUN echo "source /ros/hgbot_ws/devel/setup.bash" >> /root/.bashrc
 

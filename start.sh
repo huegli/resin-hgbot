@@ -6,9 +6,6 @@ systemctl stop bluetooth
 
 echo 127.0.0.1 `hostname` >> /etc/hosts
 
-# Start up the ROS server
-# source /opt/ros/kinetic/setup.bash
-
 # cd ~
 # 
 # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -29,8 +26,13 @@ export PASSWD=${PASSWD:=root}
 #Set the root password
 echo "root:$PASSWD" | chpasswd
 
-roscore
+# Start up the ROS server
+source /opt/ros/kinetic/setup.bash
+cd /ros/hgbot_ws/src/hgbot_infra
+git pull
+catkin_make
 
+roscore
 #while :
 #do
 #    curl -X GET --header "Content-Type:application/json" \
