@@ -17,7 +17,7 @@ echo 127.0.0.1 `hostname` >> /etc/hosts
 # echo "source /ros/hgbot_ws/devel/setup.bash" >> ~/.bashrc
 # echo "export TERM=xterm-256color" >> ~/.bashrc
 
-# export TERM=xterm-256color
+export TERM=xterm-256color
 vim +PluginInstall +qall
 
 
@@ -30,6 +30,7 @@ echo "root:$PASSWD" | chpasswd
 source /opt/ros/kinetic/setup.bash
 cd /ros/hgbot_ws/src/hgbot_infra
 git pull
+cd /ros/hgbot_ws
 catkin_make
 
 roscore
