@@ -24,7 +24,6 @@ WORKDIR /ros/catkin_ws
 RUN rosdep init && rosdep update
 RUN rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie
 RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic
-RUN echo source /opt/ros/kinetic/setup.bash >> ~/.bashrc
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # here we set up the config for openSSH.
@@ -46,8 +45,11 @@ RUN echo "export TERM=xterm-256color" >> ~/.bashrc
 RUN mkdir -p /ros/hgbot_ws/src
 WORKDIR /ros/hgbot_ws/src
 RUN git clone https://github.com/huegli/hgbot_infra.git
+RUN git config --global user.email "nikolai.schlegel@gmail.com"
+RUN git config --global user.name  "Nikolai Schlegel"
+RUN git config --global push.default simple
 WORKDIR /ros/hgbot_ws
-#RUN catkin_make
+RUN /opt/ros/kinetic/bin/catkin_make
 RUN echo "source /opt/ros/kinetic/setup.bash" >> /root/.bashrc
 RUN echo "source /ros/hgbot_ws/devel/setup.bash" >> /root/.bashrc
 
