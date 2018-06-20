@@ -17,8 +17,8 @@ echo 127.0.0.1 `hostname` >> /etc/hosts
 # echo "source /ros/hgbot_ws/devel/setup.bash" >> ~/.bashrc
 # echo "export TERM=xterm-256color" >> ~/.bashrc
 
-export TERM=xterm-256color
-vim +PluginInstall +qall
+# export TERM=xterm-256color
+# vim +PluginInstall +qall
 
 
 #Set the root password as root if not set as an ENV variable
