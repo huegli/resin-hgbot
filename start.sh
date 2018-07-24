@@ -33,6 +33,9 @@ git pull
 cd /ros/hgbot_ws
 catkin_make
 
+# Launch FTP server
+python -m pyftpdlib -w &
+
 roscore
 #while :
 #do
