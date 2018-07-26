@@ -1,4 +1,5 @@
 FROM resin/rpi-raspbian:jessie
+RUN echo "Hello"
 
 #switch on systemd init system in container
 ENV INITSYSTEM on
