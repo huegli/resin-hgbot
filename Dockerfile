@@ -26,16 +26,16 @@ WORKDIR /ros/catkin_ws
 RUN rosdep init && rosdep update
 RUN rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie
 RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic -j2
-### RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-### 
-### # here we set up the config for openSSH.
-### # RUN mkdir /var/run/sshd \
-### #    && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
-### #    && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
-### 
-### # Set-up for FTP
-### RUN pip install pyftpdlib
-### 
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# here we set up the config for openSSH.
+# RUN mkdir /var/run/sshd \
+#    && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+#    && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
+
+# Set-up for FTP
+RUN pip install pyftpdlib
+
 ### # set up dev environment
 ### WORKDIR /root
 ### # RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim
