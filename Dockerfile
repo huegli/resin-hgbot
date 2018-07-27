@@ -1,3 +1,4 @@
+# Based on https://github.com/resin-io-playground/ros-kinetic-example/blob/master/Dockerfile
 FROM resin/rpi-raspbian:jessie
 RUN echo "Hello"
 
@@ -24,7 +25,7 @@ RUN cmake . && make && make install
 WORKDIR /ros/catkin_ws
 RUN rosdep init && rosdep update
 RUN rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie
-### RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic
+RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic -j2
 ### RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 ### 
 ### # here we set up the config for openSSH.
