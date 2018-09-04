@@ -45,6 +45,9 @@ WORKDIR /root
 # RUN ln -s dotfiles/tmux.conf .tmux.conf
 # RUN echo "export TERM=xterm-256color" >> ~/.bashrc
 
+# Install joystick driver
+RUN pip install ds4drv
+
 # Set up HGBot workspace
 RUN mkdir -p /ros/hgbot_ws/src
 WORKDIR /ros/hgbot_ws/src
