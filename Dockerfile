@@ -59,6 +59,7 @@ WORKDIR /ros/hgbot_ws
 RUN echo "source /opt/ros/kinetic/setup.bash" >> /root/.bashrc
 RUN echo "source /ros/hgbot_ws/devel/setup.bash" >> /root/.bashrc
 
+COPY legacy-rover /ros/legacy-rover
 COPY start.sh /ros/start.sh
 
 CMD [ "/bin/bash", "/ros/start.sh" ]
