@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # stop unnecessary stuff
-# systemctl stop spacenavd
-systemctl stop bluetooth
+ systemctl stop spacenavd
+
+# Enable PS4 bluetooth
+hciconfig hciX up
 
 echo 127.0.0.1 `hostname` >> /etc/hosts
 
@@ -18,6 +20,9 @@ catkin_make
 
 # Launch FTP server
 python -m pyftpdlib -w &
+
+# Launch PS4 driver
+ds4drv &
 
 roscore
 #while :
