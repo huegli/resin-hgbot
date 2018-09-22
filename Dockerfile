@@ -62,4 +62,3 @@ RUN echo "source /ros/hgbot_ws/devel/setup.bash" >> /root/.bashrc
 COPY start.sh /ros/start.sh
 
 CMD [ "/bin/bash", "/ros/start.sh" ]
-# CMD [ "/bin/bash" ]
