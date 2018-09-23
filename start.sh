@@ -21,16 +21,19 @@ catkin_make
 # Launch FTP server
 python -m pyftpdlib -w &
 
+# Launch ROS
+roscore &
+
 # Launch PS4 driver
+sleep 10
 ds4drv &
 
-roscore
-#while :
-#do
-#    curl -X GET --header "Content-Type:application/json" \
-#        "$RESIN_SUPERVISOR_ADDRESS/ping?apikey=$RESIN_SUPERVISOR_API_KEY"
-#    sleep 60
-#done
+while :
+do
+    curl -X GET --header "Content-Type:application/json" \
+        "$RESIN_SUPERVISOR_ADDRESS/ping?apikey=$RESIN_SUPERVISOR_API_KEY"
+    sleep 60
+done
 
 # sleep 3
 # avahi-browse -a | grep IPv4
