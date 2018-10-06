@@ -26,7 +26,7 @@ roscore &
 
 # Launch PS4 driver
 sleep 10
-ds4drv &
+# ds4drv &
 
 while :
 do

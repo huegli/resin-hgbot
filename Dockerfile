@@ -35,6 +35,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Set-up for FTP
 RUN pip install pyftpdlib
 
+# Python Expect installations
+RUN pip install pexpect
+
 # set up dev environment
 WORKDIR /root
 # RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim
@@ -46,7 +49,7 @@ WORKDIR /root
 # RUN echo "export TERM=xterm-256color" >> ~/.bashrc
 
 # Install joystick driver
-RUN pip install ds4drv
+# RUN pip install ds4drv
 
 # Set up HGBot workspace
 RUN mkdir -p /ros/hgbot_ws/src
