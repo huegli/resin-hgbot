@@ -1,5 +1,4 @@
 # Based on https://github.com/resin-io-playground/ros-kinetic-example/blob/master/Dockerfile
-ENV MYVERSION 1
 FROM resin/rpi-raspbian:jessie
 
 #switch on systemd init system in container
