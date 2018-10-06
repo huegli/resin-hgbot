@@ -1,5 +1,8 @@
 # Based on https://github.com/resin-io-playground/ros-kinetic-example/blob/master/Dockerfile
-FROM resin/rpi-raspbian:jessie
+FROM resin/rpi-raspbian:jessie:latest
+
+# Version number
+ENV version 1.0
 
 #switch on systemd init system in container
 ENV INITSYSTEM on
@@ -32,11 +35,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #    && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
 #    && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
 
-# Set-up for FTP
-RUN pip install pyftpdlib
-
-# Python Expect installations
-RUN pip install pexpect
+# Set-up for FTP & PythonExpect
+RUN pip install pyftpdlib pexpect
 
 # set up dev environment
 WORKDIR /root
