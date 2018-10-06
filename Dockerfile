@@ -1,5 +1,5 @@
 # Based on https://github.com/resin-io-playground/ros-kinetic-example/blob/master/Dockerfile
-FROM resin/rpi-raspbian:jessie:latest
+FROM resin/rpi-raspbian:jessie
 
 # Version number
 ENV version 1.0
