@@ -4,7 +4,7 @@
 # systemctl stop spacenavd
 
 # Enable PS4 bluetooth
-# hciconfig hciX up
+hciconfig hciX up
 
 echo 127.0.0.1 `hostname` >> /etc/hosts
 

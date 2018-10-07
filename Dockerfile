@@ -13,7 +13,7 @@ ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 RUN echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list
 RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 #RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake python-pip wget unzip git avahi-utils libnss-mdns wireless-tools
-RUN apt-get update && apt-get -y install ros-kinetic-ros-base python-rosinstall python-rosinstall-generator ros-kinetic-teleop-twist-joy python-wstool build-essential python-pip wget unzip git i2c-tools bluez
+RUN apt-get update && apt-get -y install ros-kinetic-ros-base python-rosinstall python-rosinstall-generator ros-kinetic-teleop-twist-joy python-wstool build-essential python-pip wget unzip git i2c-tools bluetooth bluez bluez-tools
 
 ### COPY catkin_ws /ros/catkin_ws
 ### WORKDIR /ros/catkin_ws
