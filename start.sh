@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # stop unnecessary stuff
- systemctl stop spacenavd
+# systemctl stop spacenavd
 
 # Enable PS4 bluetooth
-hciconfig hciX up
+# hciconfig hciX up
 
 echo 127.0.0.1 `hostname` >> /etc/hosts
 
@@ -22,18 +22,18 @@ catkin_make
 python -m pyftpdlib -w &
 
 # Launch ROS
-roscore &
+roscore
 
 # Launch PS4 driver
-sleep 10
-# ds4drv &
-
-while :
-do
-    curl -X GET --header "Content-Type:application/json" \
-        "$RESIN_SUPERVISOR_ADDRESS/ping?apikey=$RESIN_SUPERVISOR_API_KEY"
-    sleep 60
-done
+### sleep 10
+### # ds4drv &
+### 
+### while :
+### do
+###     curl -X GET --header "Content-Type:application/json" \
+###         "$RESIN_SUPERVISOR_ADDRESS/ping?apikey=$RESIN_SUPERVISOR_API_KEY"
+###     sleep 60
+### done
 
 # sleep 3
 # avahi-browse -a | grep IPv4

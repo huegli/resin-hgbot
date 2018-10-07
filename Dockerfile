@@ -13,7 +13,7 @@ ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 RUN echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list
 RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 #RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake python-pip wget unzip git avahi-utils libnss-mdns wireless-tools
-RUN apt-get update && apt-get -y install ros-kinetic-ros-base python-rosinstall python-rosinstall-generator python-wstool build-essential python-pip wget unzip git
+RUN apt-get update && apt-get -y install ros-kinetic-ros-base python-rosinstall python-rosinstall-generator ros-kinetic-teleop-twist-joy python-wstool build-essential python-pip wget unzip git i2c-toolS bluz
 
 ### COPY catkin_ws /ros/catkin_ws
 ### WORKDIR /ros/catkin_ws
@@ -38,17 +38,10 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #    && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
 
 # Set-up for FTP & PythonExpect
-# RUN pip install pyftpdlib pexpect
+RUN pip install pyftpdlib pexpect
 
 # set up dev environment
 WORKDIR /root
-# RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim
-# RUN git clone https://github.com/morhetz/gruvbox.git /root/.vim/bundle/gruvbox
-# RUN git clone https://github.com/huegli/dotfiles
-# RUN ln -s dotfiles/vimrc .vimrc
-# RUN ln -s dotfiles/dir_colors .dir_colors
-# RUN ln -s dotfiles/tmux.conf .tmux.conf
-# RUN echo "export TERM=xterm-256color" >> ~/.bashrc
 
 # Install joystick driver
 # RUN pip install ds4drv
