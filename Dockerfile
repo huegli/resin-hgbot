@@ -42,6 +42,7 @@ RUN pip install pyftpdlib pexpect requests
 
 # Set up HGBot workspace
 RUN mkdir -p /ros/hgbot_ws/src
+WORKDIR /ros/hgbot_ws/src
 RUN git clone https://github.com/huegli/hgbot_infra.git
 RUN git config --global user.email "nikolai.schlegel@gmail.com"
 RUN git config --global user.name  "Nikolai Schlegel"
