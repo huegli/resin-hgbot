@@ -22,7 +22,7 @@ catkin_make
 python -m pyftpdlib -w &
 
 # Launch ROS
-roscore
+roslaunch hgbot_infra hgbot_infra.launch
 
 # Launch PS4 driver
 ### sleep 10
