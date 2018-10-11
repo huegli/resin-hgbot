@@ -17,13 +17,14 @@ cd /ros/hgbot_ws/src/hgbot_infra
 git pull
 cd /ros/hgbot_ws
 catkin_make
+source /ros/hgbot_ws/devel/setup.bash
 
 # Launch FTP server
 python -m pyftpdlib -w &
 
 # Launch ROS
-roscore
-# roslaunch hgbot_infra hgbot_infra.launch
+# roscore
+roslaunch hgbot_infra hgbot_infra.launch
 
 # Launch PS4 driver
 ### sleep 10
