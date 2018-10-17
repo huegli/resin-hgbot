@@ -19,6 +19,10 @@ cd /ros/hgbot_ws
 catkin_make
 source /ros/hgbot_ws/devel/setup.bash
 
+echo "source /opt/ros/kinetic/setup.bash" > setup
+echo "source /ros/hgbot_ws/devel/setup.bash" >> setup 
+chmod +x setup
+
 # Launch FTP server
 python -m pyftpdlib -w &
 
