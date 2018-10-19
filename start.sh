@@ -23,6 +23,9 @@ echo "source /opt/ros/kinetic/setup.bash" > setup
 echo "source /ros/hgbot_ws/devel/setup.bash" >> setup 
 chmod +x setup
 
+echo "rosservice call bt_joy_service scan" > pair
+chmod +x pair
+
 # Launch FTP server
 python -m pyftpdlib -w &
 
