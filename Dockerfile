@@ -49,7 +49,7 @@ RUN git config --global user.name  "Nikolai Schlegel"
 RUN git config --global push.default simple
 WORKDIR /ros/hgbot_ws
 
-COPY legacy-rover /ros/legacy-rover
+# COPY legacy-rover /ros/legacy-rover
 COPY start.sh /ros/start.sh
 
 CMD [ "/bin/bash", "/ros/start.sh" ]

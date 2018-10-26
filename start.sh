@@ -27,7 +27,7 @@ echo "rosservice call bt_joy_service scan" > pair
 chmod +x pair
 
 # Launch FTP server
-python -m pyftpdlib -w &
+python -m pyftpdlib -w -p 21 &
 
 # Launch ROS
 #roscore &
