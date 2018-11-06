@@ -16,6 +16,8 @@ source /opt/ros/kinetic/setup.bash
 cd /ros/hgbot_ws/src/hgbot_infra
 git pull
 cd /ros/hgbot_ws
+apt-get update
+rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 source /ros/hgbot_ws/devel/setup.bash
 
@@ -30,6 +32,7 @@ chmod +x pair
 python -m pyftpdlib -w -p 21 &
 
 # Launch ROS
+echo "Launching ROS Core & nodes"
 #roscore &
 #rosrun hgbot_infra bt_joy
 roslaunch hgbot_infra hgbot_infra.launch
@@ -42,6 +45,7 @@ roslaunch hgbot_infra hgbot_infra.launch
 ### do
 ###     curl -X GET --header "Content-Type:application/json" \
 ###         "$RESIN_SUPERVISOR_ADDRESS/ping?apikey=$RESIN_SUPERVISOR_API_KEY"
+###     echo "Hello ROS"
 ###     sleep 60
 ### done
 

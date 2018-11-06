@@ -38,7 +38,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #    && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
 
 # Set-up for FTP, Requests & PythonExpect
-RUN pip install pyftpdlib pexpect requests
+RUN pip install pyftpdlib pexpect
 
 # Set up HGBot workspace
 RUN mkdir -p /ros/hgbot_ws/src
