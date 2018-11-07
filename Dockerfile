@@ -27,7 +27,7 @@ RUN apt-get update && apt-get -y install ros-kinetic-ros-base python-rosinstall 
 ### WORKDIR /ros/catkin_ws/external_src/assimp-3.1.1
 ### RUN cmake . && make && make install
 ### WORKDIR /ros/catkin_ws
-RUN rosdep init && rosdep update
+RUN rosdep init
 ### RUN rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie
 ### RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic -j2
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*

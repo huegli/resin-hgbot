@@ -17,6 +17,7 @@ cd /ros/hgbot_ws/src/hgbot_infra
 git pull
 cd /ros/hgbot_ws
 apt-get update
+rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 source /ros/hgbot_ws/devel/setup.bash
